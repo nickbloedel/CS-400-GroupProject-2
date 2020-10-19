@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class DataLoader {
 	
-	private HashTableMap<String, Definition> map;
+	private RedBlackTree<String, Definition> map;
 	private File file;
 	
-	public DataLoader(File file, HashTableMap<String, Definition> map)  {
+	public DataLoader(File file, RedBlackTree<String, Definition> map)  {
 		this.map = map;
 		this.file = file;
 		try {
@@ -44,7 +44,7 @@ public class DataLoader {
 	  }
 
 
-	public HashTableMap<String, Definition> getMap() {
+	public RedBlackTree<String, Definition> getMap() {
 		return map;
 	}
 
