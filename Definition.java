@@ -11,7 +11,7 @@ public class Definition {
     return KeyWord;
   }
 
-  public String get() {
+  public String getinfo() {
     return info;
   }
 
