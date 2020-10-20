@@ -1,4 +1,5 @@
-public class Definition {
+  
+public class Definition implements Comparable<Definition>{
   private String KeyWord;
   private String info;
 
@@ -13,6 +14,12 @@ public class Definition {
 
   public String getinfo() {
     return info;
+  }
+
+  @Override
+  public int compareTo(Definition o) {
+    // TODO Auto-generated method stub
+    return this.KeyWord.compareTo(o.getKeyWord());
   }
 
 }

@@ -3,55 +3,55 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class DataLoader {
-	
-	private RedBlackTree<String, Definition> map;
-	private File file;
-	
-	public DataLoader(File file, RedBlackTree<String, Definition> map)  {
-		this.map = map;
-		this.file = file;
-		try {
-			setData();
-		} catch (FileNotFoundException e) {
-			System.out.println(e.getMessage());
-		}
-	}
-	
-	
-	public void setData() throws FileNotFoundException {
-	    String KeyWord;
-	    String info;
-	    Definition addMe;
+    
+    private WordRBT<Definition> map;
+    private File file;
+    
+    public DataLoader(File file, WordRBT<Definition> map)  {
+        this.map = map;
+        this.file = file;
+        try {
+            setData();
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    
+    public void setData() throws FileNotFoundException {
+        String KeyWord;
+        String info;
+        Definition addMe;
 
-	    if (file == null) {
-	      throw new FileNotFoundException("Error. No file found. Please use "
-	      		+ "valid file ending in .txt");
-	    }
+        if (file == null) {
+          throw new FileNotFoundException("Error. No file found. Please use "
+                + "valid file ending in .txt");
+        }
 
-	    Scanner scan = new Scanner(file);
+        Scanner scan = new Scanner(file);
 
-	    while(scan.hasNextLine()) {
-	       KeyWord = scan.next();
-	       info = scan.nextLine();
-	       addMe = new Definition(KeyWord, info);
+        while(scan.hasNextLine()) {
+           KeyWord = scan.next();
+           info = scan.nextLine();
+           addMe = new Definition(KeyWord, info);
 
-	       map.put(KeyWord, addMe);
-	    }
+           map.insert(addMe);
+        }
 
-	    if (scan != null) {
-	    	scan.close();
-	    }
-	  }
-
-
-	public RedBlackTree<String, Definition> getMap() {
-		return map;
-	}
+        if (scan != null) {
+            scan.close();
+        }
+      }
 
 
-	public void setFile(File file) {
-		this.file = file;
-	}
-	
-	
+    public WordRBT<Definition> getMap() {
+        return this.map;
+    }
+
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+    
+    
 }
